@@ -205,6 +205,67 @@ nav .nav-btn:hover {
   background-color: transparent;
 }
 
+header {
+  font-size: 30px;
+  text-overflow: clip;
+  height: 60vh;
+  padding: 5px 0;
+}
+
+header .bg-dark {
+  background: #302f38;
+  height: 100%;
+  background: linear-gradient(rgba(10, 10, 10, 0.8), rgba(10, 10, 10, 0.8)),
+    url(./images/banner.jpg) center/cover no-repeat;
+}
+
+header .header-wrapper {
+  height: 100%;
+  padding: 2em 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+header .content-section {
+  color: white;
+  text-align: center;
+  padding: 0 1.5em;
+}
+.waviy {
+  position: relative;
+  -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0, 0, 0, 0.2));
+  font-size: 60px;
+}
+.waviy span {
+  text-decoration: solid;
+  font-family: sans-serif;
+  font-weight: bold;
+  position: relative;
+  display: inline-block;
+  color: #fcd232;
+  text-transform: uppercase;
+  animation: waviy 2s infinite;
+  animation-delay: calc(0.1s * var(--i));
+}
+
+@keyframes waviy {
+  0%,
+  40%,
+  100% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(-20px);
+  }
+}
+
 @media (min-width: 1024px) {
   nav {
     font-size: 15px;
