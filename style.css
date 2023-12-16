@@ -251,9 +251,10 @@ header .content-section {
   display: inline-block;
   color: #fcd232;
   text-transform: uppercase;
-  animation: waviy 1.5s infinite;
+  animation: waviy 2s infinite;
   animation-delay: calc(0.1s * var(--i));
 }
+
 @keyframes waviy {
   0%,
   40%,
