@@ -300,10 +300,6 @@ header .content-section {
   text-align: right;
 }
 
-.filter.active {
-  background-color: #e91009;
-}
-
 input[type="checkbox"] {
   display: none;
 }
@@ -336,10 +332,6 @@ input[type="checkbox"] {
 
 .container .card.show {
   display: none;
-}
-
-.container .card.show.mobile {
-  display: block;
 }
 
 .container .card:not(:last-child) {
@@ -622,7 +614,6 @@ footer p {
 .form-wrapper form .error.show {
   display: block;
 }
-
 footer {
   background-color: #302f38;
   color: white;
@@ -633,7 +624,20 @@ footer {
 footer p {
   margin-bottom: 0;
 }
-
+.isprati {
+  margin-top: 1.5em;
+}
+select {
+  border: none;
+  padding: 1rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  opacity: 1;
+  width: 100%;
+}
 @media (min-width: 600px) {
   .form-wrapper {
     padding-top: 5rem;
@@ -771,4 +775,144 @@ footer p {
   .form-wrapper {
     width: 70%;
   }
+}
+
+.filters {
+  z-index: 9;
+  display: flex;
+}
+@media (max-width: 910px) {
+  .filters {
+    flex-direction: column;
+  }
+}
+.filters .filter {
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-basis: 33.33%;
+  color: white;
+  background-color: #302f38;
+  padding: 25px 45px;
+  font-weight: 600;
+  cursor: pointer;
+}
+@media (max-width: 1190px) {
+  .filters .filter {
+    padding: 25px 35px;
+  }
+}
+
+.filters {
+  z-index: 9;
+  display: flex;
+}
+@media (max-width: 910px) {
+  .filters {
+    flex-direction: column;
+  }
+}
+.filters .filter {
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-basis: 33.33%;
+  color: white;
+  background-color: #302f38;
+  padding: 25px 45px;
+  font-weight: 600;
+  cursor: pointer;
+}
+@media (max-width: 1190px) {
+  .filters .filter {
+    padding: 25px 35px;
+  }
+}
+@media (max-width: 910px) {
+  .filters .filter {
+    padding: 15px 35px;
+  }
+}
+@media (max-width: 425px) {
+  .filters .filter {
+    padding: 15px 20px;
+  }
+}
+.filters .filter i {
+  margin-bottom: 0;
+  display: inline-block;
+  margin-top: 17px;
+  color: #eb3b3b;
+  display: none;
+}
+.filters .filter .icon {
+  flex-basis: 10%;
+}
+.filters .filter .icon P {
+  text-align: center;
+  margin-bottom: 0;
+  background-color: #302f38;
+  border-radius: 50%;
+  height: 35px;
+  width: 35px;
+}
+.filters .filter:not(:last-child) {
+  border-right: 1px rgba(128, 128, 128, 0.2) solid;
+}
+@media (max-width: 910px) {
+  .filters .filter:not(:last-child) {
+    border-bottom: 1px rgba(128, 128, 128, 0.2) solid;
+  }
+}
+.filters .filter .desc {
+  flex-basis: 90%;
+  margin-right: 15px;
+  font-size: 18px;
+}
+.filters .filter .desc p {
+  margin-bottom: 0;
+  width: 70%;
+}
+@media (max-width: 1440px) {
+  .filters .filter .desc p {
+    width: 100%;
+  }
+}
+@media (max-width: 1190px) {
+  .filters .filter .desc p {
+    font-size: 12px;
+  }
+}
+@media (max-width: 910px) {
+  .filters .filter .desc p {
+    font-size: 20px;
+    width: 60%;
+  }
+}
+@media (max-width: 650px) {
+  .filters .filter .desc p {
+    width: 90%;
+  }
+}
+@media (max-width: 425px) {
+  .filters .filter .desc p {
+    width: 100%;
+    font-size: 15px;
+  }
+}
+@media (max-width: 375px) {
+  .filters .filter .desc p {
+    font-size: 13px;
+  }
+}
+.filters .filter.filter-on {
+  background-color: #eb3b3b;
+}
+.filters .filter.filter-on i {
+  display: inline-block;
+}
+.filters .filter.filter-on p {
+  color: #302f38;
 }
