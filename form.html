@@ -5,12 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
-      integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk"
+    <script
+      src="https://kit.fontawesome.com/0d6f25b6d2.js"
       crossorigin="anonymous"
-    />
+    ></script>
+  
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
@@ -139,27 +138,26 @@
             >
           </p>
         </div>
+        <form method="post" onsubmit="post(event)">
+          <div class="form-group">
+            <label for="type">Тип на студент</label>
+            
+              <select class="form-group" id="studenti">
+                <option value="0">Изберете тип на студент
+                </option>
+                <option value="1">Студент од маркетинг</option>
+                <option value="2">Студент од програмирање</option>
+                <option value="3">Студент од data science</option>
+                <option value="4">Студент од дизајн</option>
+              </select>
+            </div>
+     
 
-        <div class="form-group">
-          <label>Тип на студент</label>
-          <p class="studentType error">
-            <small><em>не избравте тип на студент</em></small>
-          </p>
-          <div class="custom-select">
-            <select>
-              <option value="0">Изберете тип на студент</option>
-              <option value="1">Студент од маркетинг</option>
-              <option value="2">Студент од програмирање</option>
-              <option value="3">Студент од data science</option>
-              <option value="4">Студент од дизајн</option>
-            </select>
+          <div class="form-group">
+            <input type="submit" value="испрати" id="name" class="isprati"/>
           </div>
-        </div>
-
-        <div class="form-group">
-          <input type="submit" value="испрати" id="name" />
-        </div>
-      </form>
+        </form>
+ 
     </div>
 
     <footer>
@@ -169,7 +167,7 @@
         </small>
       </p>
     </footer>
-
+    <script src="./js/database.js"></script>
     <script src="./JS/navbar.js"></script>
     <script src="./JS/form.js"></script>
   </body>

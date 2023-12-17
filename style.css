@@ -408,7 +408,20 @@ footer {
 footer p {
   margin-bottom: 0;
 }
-
+.isprati {
+  margin-top: 1.5em;
+}
+select {
+  border: none;
+  padding: 1rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  opacity: 1;
+  width: 100%;
+}
 @media (min-width: 600px) {
   .form-wrapper {
     padding-top: 5rem;
