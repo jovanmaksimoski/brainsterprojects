@@ -4,12 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
-      integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk"
+
+    <script
+      src="https://kit.fontawesome.com/0d6f25b6d2.js"
       crossorigin="anonymous"
-    />
+    ></script>
     <link rel="stylesheet" href="./style.css" />
     <title>Project-01</title>
   </head>
@@ -96,24 +95,31 @@
       </div>
     </header>
 
-    <input type="checkbox" id="marketingFilter" />
-    <input type="checkbox" id="codingFilter" />
-    <input type="checkbox" id="designFilter" />
     <div class="filters">
-      <label class="marketing-filter filter" for="marketingFilter">
-        <p>Проекти на студенти по академијата за маркетинг</p>
-        <i class="fas fa-check-circle"></i>
-      </label>
-
-      <label class="coding-filter filter" for="codingFilter">
-        <p>Проекти на студенти по академијата за програмирање</p>
-        <i class="fas fa-check-circle"></i>
-      </label>
-
-      <label class="design-filter filter" for="designFilter">
-        <p>Проекти на студенти по академијата за дизајн</p>
-        <i class="fas fa-check-circle"></i>
-      </label>
+      <div class="filter" id="marketing">
+        <div class="desc">
+          <p>Проекти на студенти по академијата за маркетинг</p>
+        </div>
+        <div class="icon">
+          <p><i class="fa-solid fa-check fa-lg"></i></p>
+        </div>
+      </div>
+      <div class="filter" id="code">
+        <div class="desc">
+          <p>Проекти на студенти по академијата за програмирање</p>
+        </div>
+        <div class="icon">
+          <p><i class="fa-solid fa-check fa-lg"></i></p>
+        </div>
+      </div>
+      <div class="filter" id="design">
+        <div class="desc">
+          <p>Проекти на студенти по академијата за дизајн</p>
+        </div>
+        <div class="icon">
+          <p><i class="fa-solid fa-check fa-lg"></i></p>
+        </div>
+      </div>
     </div>
 
     <section class="container">
@@ -558,7 +564,6 @@
           </a>
         </div>
       </div>
-      <button class="btn loadmore show">Прикажи повеќе</button>
     </section>
 
     <footer>
