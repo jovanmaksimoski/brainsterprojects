@@ -265,6 +265,48 @@ header .content-section {
     transform: translateY(-20px);
   }
 }
+.filter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #302f38;
+  padding: 1.5rem;
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.filter p {
+  margin-bottom: 0;
+  -ms-flex-preferred-size: 85%;
+  flex-basis: 85%;
+  color: white;
+  font-weight: bold;
+}
+
+.filter i {
+  color: #302f38;
+  font-size: 2rem;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  -ms-flex-preferred-size: 15%;
+  flex-basis: 15%;
+  text-align: right;
+}
+
+.filter.active {
+  background-color: #e91009;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
 
 @media (min-width: 1024px) {
   nav {
