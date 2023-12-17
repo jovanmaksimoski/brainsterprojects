@@ -454,6 +454,42 @@ footer {
 footer p {
   margin-bottom: 0;
 }
+@media (min-width: 600px) {
+  .container h2 {
+    text-align: center;
+  }
+  .container .card-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin: 0 -10px;
+  }
+  .container .card {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 1 50%;
+    flex: 0 1 50%;
+  }
+  .container .card.show {
+    display: block;
+  }
+  .container .card-inner {
+    margin: 0 10px;
+  }
+  .container .card-header {
+    width: 90%;
+  }
+  .container .card-body {
+    width: 100%;
+  }
+  .container button.loadmore {
+    display: none;
+  }
+  .container button.loadmore.show {
+    display: none;
+  }
+}
 
 @media (min-width: 1024px) {
   nav {
@@ -522,11 +558,23 @@ footer p {
   nav .menu .nav-item:last-child {
     margin-left: 1.5em;
   }
+  .container {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .container .card {
+    -ms-flex-preferred-size: 33.3333%;
+    flex-basis: 33.3333%;
+  }
 }
 
 @media (min-width: 1200px) {
   nav .menu {
     text-align: left;
+  }
+  .container {
+    width: 80%;
+    margin: 0 auto;
   }
 }
 
@@ -536,5 +584,14 @@ footer p {
   }
   nav .menu .nav-item:not(:last-child) {
     margin-right: 2em;
+  }
+  .container {
+    width: 70%;
+  }
+}
+
+@media (min-width: 2256px) {
+  .container {
+    width: 60%;
   }
 }
