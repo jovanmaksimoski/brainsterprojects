@@ -308,6 +308,18 @@ input[type="checkbox"] {
   display: none;
 }
 
+@media (min-width: 600px) {
+  .filters {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .filters .filter {
+    -ms-flex-preferred-size: 33.3333%;
+    flex-basis: 33.3333%;
+  }
+}
+
 @media (min-width: 1024px) {
   nav {
     font-size: 15px;
