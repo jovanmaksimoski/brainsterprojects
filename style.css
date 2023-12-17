@@ -266,6 +266,26 @@ header .content-section {
   }
 }
 
+@media (min-width: 600px) {
+  .form-wrapper {
+    padding-top: 5rem;
+  }
+  .form-wrapper form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+  .form-wrapper form .form-group {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 1 50%;
+    flex: 0 1 50%;
+    padding: 1em;
+    margin-bottom: 0;
+  }
+}
+
 @media (min-width: 1024px) {
   nav {
     font-size: 15px;
@@ -333,11 +353,22 @@ header .content-section {
   nav .menu .nav-item:last-child {
     margin-left: 1.5em;
   }
+  .form-wrapper {
+    padding: 4rem 0;
+    width: 90%;
+    margin: 0 auto;
+  }
 }
 
 @media (min-width: 1200px) {
   nav .menu {
     text-align: left;
+  }
+  .form-header h1 {
+    font-size: 4rem;
+  }
+  .form-wrapper {
+    width: 80%;
   }
 }
 
@@ -347,5 +378,8 @@ header .content-section {
   }
   nav .menu .nav-item:not(:last-child) {
     margin-right: 2em;
+  }
+  .form-wrapper {
+    width: 70%;
   }
 }
