@@ -284,6 +284,11 @@
             <div id="quote" class="text-sm text-gray-500 sm:text-center dark:text-gray-400 text-center"></div>
         </footer>
 
+
+        <script src="javaScript/chervronAnimate.js"></script>
+        <script src="javaScript/filter.js"></script>
+        <script src="javaScript/quote.js"></script>
+
 </body>
 </html>
 
