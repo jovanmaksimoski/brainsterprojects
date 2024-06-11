@@ -1,7 +1,4 @@
 
-
-
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -13,8 +10,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
 </head>
-<body>
-
+<body class="dark:bg-gray-900">
 
 <!--Sign Up page -->
 <form class="bg-gray-50 dark:bg-gray-900" action="./backEnd/Classes/signUpUser.php" method=POST>
