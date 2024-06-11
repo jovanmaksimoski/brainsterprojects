@@ -1,3 +1,18 @@
+
+<?php
+
+use backEnd\Classes\DbConnection;
+use backEnd\Classes\SignUpUser;
+
+require_once ("backEnd/Classes/dbConnection.php");
+require_once("backEnd/Classes/signUpUser.php");
+
+
+
+
+?>
+
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -12,7 +27,7 @@
 <body>
 
 <!--Sign Up page -->
-<section class="bg-gray-50 dark:bg-gray-900">
+<form class="bg-gray-50 dark:bg-gray-900" action="/backEnd/Classes/signUpUser.php" method=POST>
     <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
         <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
             <img class=" h-14 " src="../img/dw.webp" alt="Brainster Logo">
@@ -51,9 +66,8 @@
             </div>
         </div>
     </div>
-</section>
+</form>
 
 </body>
 </html>
 
-<?php
