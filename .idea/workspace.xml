@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02eae611-7b93-4ff9-ab28-73d202018f9d" name="Changes" comment="" />
+    <list default="true" id="02eae611-7b93-4ff9-ab28-73d202018f9d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,8 +43,8 @@
     "JavaScript Debug.form.html.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "signup__page",
-    "last_opened_file_path": "C:/xampp/htdocs/brainsterprojects_jovanmaksimoski-fs15",
+    "git-widget-placeholder": "login__page",
+    "last_opened_file_path": "C:/xampp/htdocs/brainster_library2",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -53,11 +56,7 @@
   }
 }]]></component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\brainsterprojects_jovanmaksimoski-fs15" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\brainsterprojects_jovanmaksimoski-fs15" />
       <recent name="C:\xampp\htdocs\brainsterprojects_jovanmaksimoski-fs15\frontEnd" />
       <recent name="C:\xampp\htdocs\brainsterprojects_jovanmaksimoski-fs15\img" />
     </key>
@@ -85,7 +84,7 @@
       <workItem from="1717615158994" duration="184000" />
       <workItem from="1717831594583" duration="307000" />
       <workItem from="1717954396719" duration="703000" />
-      <workItem from="1717955119002" duration="567000" />
+      <workItem from="1717955119002" duration="201000" />
     </task>
     <servers />
   </component>
