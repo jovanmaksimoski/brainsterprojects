@@ -1,3 +1,5 @@
+
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -21,6 +23,14 @@
 <!--Nav Bar -->
 <nav class="bg-white border-gray-200 dark:bg-gray-900 ">
     <div class=" flex flex-wrap items-center justify-between  p-4">
+        <?php
+        session_start();
+
+        if (isset($_SESSION['success_message'])) {
+            echo '<div class="text-green-500">' . $_SESSION['success_message'] . '</div>';
+            unset($_SESSION['success_message']);
+        }
+        ?>
         <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
             <img src="./img/dw.webp" class="h-12 " alt="Brainster Logo"/>
             <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Brainster Library</span>
