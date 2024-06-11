@@ -2,7 +2,7 @@
 
 namespace backEnd\Classes;
 
-
+require_once ("backEnd/Classes/dbConnection.php");
 class SignUpUser
 {
     protected \PDO $_db;

@@ -2,7 +2,7 @@
 
 namespace backEnd\Classes;
 
-class DbConnection {
+class DbConnection {as
     const DB_HOSTNAME = 'localhost';
     const DB_USERNAME = 'root';
     const DB_PASSWORD = '';
