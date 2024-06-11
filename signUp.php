@@ -1,4 +1,7 @@
 
+
+
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,14 +9,16 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Sign Up</title>
     <script src="https://cdn.tailwindcss.com"></script>
 
 </head>
 <body>
 
+
 <!--Sign Up page -->
 <form class="bg-gray-50 dark:bg-gray-900" action="./backEnd/Classes/signUpUser.php" method=POST>
+
     <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
         <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
             <img class=" h-14 " src="./img/dw.webp" alt="Brainster Logo">
@@ -24,6 +29,15 @@
                     Create an account
                 </h1>
                 <form class="space-y-4 md:space-y-6" action="#">
+                    <?php
+                    session_start();
+
+                    if (isset($_SESSION['error_message'])) {
+                        echo '<div class="text-red-400">' . $_SESSION['error_message'] . '</div>';
+                        unset($_SESSION['error_message']);
+                    }
+
+                    ?>
                     <div>
                         <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your
                             email</label>
@@ -32,6 +46,8 @@
                                placeholder="name@company.com" required="">
                     </div>
                     <div>
+
+
                         <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
                         <input type="password" name="password" id="password" placeholder="••••••••"
                                class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
