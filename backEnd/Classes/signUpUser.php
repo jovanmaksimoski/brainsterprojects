@@ -2,7 +2,7 @@
 
 namespace backEnd\Classes;
 
-require_once ("backEnd/Classes/dbConnection.php");
+require_once ("./dbConnection.php");
 
 class SignUpUser
 {
@@ -70,7 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["create"])) {
 
     if ($result === true) {
         // Redirect to index page on successful sign-up
-       return header("Location: ./index.php?");
+       return header("Location: ../../index.php");
 
     }
 }
