@@ -2,7 +2,7 @@
 
 namespace backEnd\Classes;
 
-require_once ("dbConnection.php");
+require_once("dbConnection.php");
 
 class LoginUser
 {
@@ -26,6 +26,7 @@ class LoginUser
         if (!password_verify($password, $user['password'])) {
             return "Incorrect password";
         }
+
         return true;
     }
 };
