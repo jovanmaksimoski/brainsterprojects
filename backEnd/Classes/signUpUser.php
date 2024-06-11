@@ -20,7 +20,6 @@ class SignUpUser
         }
 
 
-
         if (!preg_match("/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/", $password)) {
             return "Invalid password format. Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one number";
         }
@@ -33,30 +32,22 @@ class SignUpUser
             return "Email already exists";
         }
 
-
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
 
         $stmt = $this->_db->prepare("INSERT INTO users (email, password) VALUES (?, ?)");
-        $stmt->execute([$email, $hashedPassword]);
+        if (!$stmt->execute([$email, $hashedPassword])) {
+            return "Failed to register user. Please try again later.";
+        }
 
         return true;
 
-//        echo  "User registered successfully";
+
 
     }
 }
 
-//if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["create"])) {
-//    $dbConnection = new DbConnection();
-//    $db = $dbConnection->getDbConnection();
-//    $signUp = new SignUpUser($db);
-//    $email = $_POST["email"];
-//    $password = $_POST["password"];
-//    $result = $signUp->signUp($email, $password);
-//
-//    return $result;
-//}
+session_start();
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["create"])) {
@@ -68,8 +59,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["create"])) {
     $result = $signUp->signUp($email, $password);
 
     if ($result === true) {
-        // Redirect to index page on successful sign-up
-       return header("Location: ./index.php?");
-
+        $_SESSION['success_message'] = "Successfully signed up. Welcome!";
+        header("Location: ../../index.php");
+        exit;
+    } else {
+        $_SESSION['error_message'] = $result;
+        header("Location: ../../signup.php");
+        exit;
     }
 }
