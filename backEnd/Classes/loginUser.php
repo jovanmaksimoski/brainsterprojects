@@ -55,8 +55,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"])) {
     $result = $loginUser->login($email, $password);
 
     if ($result === true) {
-        $_SESSION['success_message'] = "Logged in successfully";
-        header("Location: ../../index.php");
+        $_SESSION['success_message'] = "<div class='bg-white py-2 px-2 rounded'>Logged in successfully</div>";
+        header("Location: ../../userPage.php");
     } else {
         $_SESSION['error_message'] = $result;
         header("Location: ../../login.php");

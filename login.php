@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -17,7 +16,7 @@
 <form class="bg-gray-50 dark:bg-gray-900" action="backEnd/Classes/loginUser.php" method="POST">
     <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
         <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
-            <img class=" h-14 " src="../img/dw.webp" alt="Brainster Logo">
+            <img class=" h-14 " src="./img/dw.webp" alt="Brainster Logo">
 
         </a>
         <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
@@ -32,7 +31,10 @@
                     session_start();
 
                     if (isset($_SESSION['error_message'])) {
-                        echo '<div class="text-red-400 text-center">' . $_SESSION['error_message'] . '</div>';
+                        echo '<div class=" bg-white rounded text-red-900 py-3 text-center">' . $_SESSION['error_message'] . '</div>';
+                        echo '<form method="POST" action="./login.php">
+    <button type="submit" name="logout" class="text-sm font-light text-gray-500 dark:text-gray-400">Logout</button>
+</form>';
                         unset($_SESSION['error_message']);
 
                     }
@@ -73,4 +75,6 @@
 </html>
 
 
-<?php
+
+
+

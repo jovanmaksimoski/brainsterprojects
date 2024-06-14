@@ -36,12 +36,10 @@
             <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Brainster Library</span>
         </a>
         <div class="flex md:order-2 space-x-5 rtl:space-x-reverse ">
-            <a href="signUp.php" type="button"
-               class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ">Sign
-                Up</a>
-            <a href="login.php" type="button"
+
+            <a href="login.php" type="button" name="logout"
                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ">Log
-                In</a>
+                Out</a>
 
         </div>
 
