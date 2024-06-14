@@ -10,6 +10,11 @@
 =======
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backEnd/Classes/loginUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/backEnd/Classes/loginUser.php" afterDir="false" />
+<<<<<<< HEAD
+>>>>>>> login_page
+=======
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
 >>>>>>> login_page
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,12 +48,19 @@
     <option name="showLibraryContents" value="true" />
   </component>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> login_page
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "JavaScript Debug.form.html.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+<<<<<<< HEAD
     "git-widget-placeholder": "project02",
+=======
+    "git-widget-placeholder": "login__page",
+>>>>>>> login_page
     "last_opened_file_path": "C:/xampp/htdocs/brainster_library2",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
@@ -58,6 +70,7 @@
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "preferences.toDoOptions",
     "vue.rearranger.settings.migration": "true"
+<<<<<<< HEAD
 =======
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
@@ -75,8 +88,10 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.toDoOptions&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
 >>>>>>> login_page
+=======
+>>>>>>> login_page
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\brainsterprojects_jovanmaksimoski-fs15\frontEnd" />
@@ -107,8 +122,6 @@
       <workItem from="1717831594583" duration="307000" />
       <workItem from="1717954396719" duration="703000" />
       <workItem from="1717955119002" duration="201000" />
-      <workItem from="1718123656971" duration="3387000" />
-      <workItem from="1718373005209" duration="1200000" />
     </task>
     <servers />
   </component>
