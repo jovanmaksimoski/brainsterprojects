@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="02eae611-7b93-4ff9-ab28-73d202018f9d" name="Changes" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/backEnd/Classes/signUpUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/backEnd/Classes/signUpUser.php" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backEnd/Classes/loginUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/backEnd/Classes/loginUser.php" afterDir="false" />
+>>>>>>> login_page
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +42,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "JavaScript Debug.form.html.executor": "Run",
@@ -52,8 +58,25 @@
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "preferences.toDoOptions",
     "vue.rearranger.settings.migration": "true"
+=======
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JavaScript Debug.form.html.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;login__page&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/brainster_library2&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.toDoOptions&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+>>>>>>> login_page
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\brainsterprojects_jovanmaksimoski-fs15\frontEnd" />
@@ -84,6 +107,8 @@
       <workItem from="1717831594583" duration="307000" />
       <workItem from="1717954396719" duration="703000" />
       <workItem from="1717955119002" duration="201000" />
+      <workItem from="1718123656971" duration="3387000" />
+      <workItem from="1718373005209" duration="1200000" />
     </task>
     <servers />
   </component>
