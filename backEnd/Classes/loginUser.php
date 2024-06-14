@@ -35,10 +35,12 @@ class LoginUser
             return "User not found";
         }
 
-        if (!password_verify($password, $user['password'])) {
+        if (password_verify($password, $user['password'])) {
+
             return true;
         }
         return "Incorrect password";
+
 
     }
 }
@@ -54,10 +56,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"])) {
 
     if ($result === true) {
         $_SESSION['success_message'] = "Logged in successfully";
-//        header("Location: ../../index.php");
+        header("Location: ../../index.php");
     } else {
         $_SESSION['error_message'] = $result;
-//        header("Location: ../../login.php");
+        header("Location: ../../login.php");
     } exit;
 
 
