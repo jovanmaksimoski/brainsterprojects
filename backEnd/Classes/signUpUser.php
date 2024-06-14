@@ -45,25 +45,4 @@ class SignUpUser
     }
 }
 
-session_start();
-
-
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["create"])) {
-    $dbConnection = new DbConnection();
-    $db = $dbConnection->getDbConnection();
-    $signUp = new SignUpUser($db);
-    $email = $_POST["email"];
-    $password = $_POST["password"];
-    $result = $signUp->signUp($email, $password);
-
-    if ($result === true) {
-        $_SESSION['success_message'] = "Successfully signed up. Welcome!";
-        header("Location: ../../index.php");
-        exit;
-    } else {
-        $_SESSION['error_message'] = $result;
-        header("Location: ../../signup.php");
-        exit;
-    }
-}
 

@@ -1,4 +1,5 @@
 <?php
+
 namespace backEnd\Classes;
 
 require_once("dbConnection.php");
@@ -16,7 +17,7 @@ class LoginUser
     {
 
         $adminEmail = "admin@admin.com";
-        $adminPasswordHash = password_hash("admin", PASSWORD_DEFAULT);
+        $adminPasswordHash = password_hash("Admin1234a", PASSWORD_DEFAULT);
 
         if ($email === $adminEmail) {
             if (password_verify($password, $adminPasswordHash)) {
@@ -25,6 +26,7 @@ class LoginUser
                 return "Incorrect password";
             }
         }
+
         $stmt = $this->_db->prepare("SELECT * FROM users WHERE email = ?");
         $stmt->execute([$email]);
         $user = $stmt->fetch(\PDO::FETCH_ASSOC);
@@ -34,13 +36,12 @@ class LoginUser
         }
 
         if (!password_verify($password, $user['password'])) {
-            return "Incorrect password";
+            return true;
         }
+        return "Incorrect password";
 
-        return true;
     }
-};
-
+}
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"])) {
@@ -53,12 +54,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"])) {
 
     if ($result === true) {
         $_SESSION['success_message'] = "Logged in successfully";
-        header("Location: ../../index.php");
-        exit;
+//        header("Location: ../../index.php");
     } else {
         $_SESSION['error_message'] = $result;
-        header("Location: ../../login.php");
-        exit;
-    }
+//        header("Location: ../../login.php");
+    } exit;
+
+
 }
 
