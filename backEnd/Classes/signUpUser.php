@@ -57,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["create"])) {
     $result = $signUp->signUp($email, $password);
 
     if ($result === true) {
-        $_SESSION['success_message'] = "Successfully signed up. Welcome!";
+        $_SESSION['success_message'] = "<div class='bg-white py-2 px-2 rounded'>Successfully signed up. Welcome!</div>";
         header("Location: ../../index.php");
         exit;
     } else {
