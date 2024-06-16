@@ -24,9 +24,11 @@ class LoginUser
             $_SESSION['error_message'] = "User not found";
             return false;
         }
+        if($user['email'] == 'admin@gmail.com') {
+            $_SESSION['admin'] = true;
+        }
 
         if (password_verify($password, $user['password'])) {
-            // Set session variables
             $_SESSION['user'] = $user;
             return true;
         } else {
@@ -46,6 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"])) {
 
     if ($result === true) {
         $_SESSION['success_message'] = "<div class='bg-white py-2 px-2 rounded'>Logged in successfully</div>";
+        $_SESSION['loggedIn'] = true;
         header("Location: ../../index.php");
         exit();
     } else {
