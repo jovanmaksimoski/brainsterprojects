@@ -1,6 +1,7 @@
 <?php
 
 namespace backEnd\Classes;
+session_start();
 
 require_once("./dbConnection.php");
 
@@ -46,7 +47,6 @@ class SignUpUser
 }
 
 
-session_start();
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["create"])) {
