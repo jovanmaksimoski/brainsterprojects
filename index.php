@@ -1,4 +1,7 @@
+<?php
 
+session_start();
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -23,40 +26,48 @@
 <nav class="bg-white border-gray-200 dark:bg-gray-900">
     <div class="flex flex-wrap items-center justify-between p-4">
         <?php
-        session_start();
 
         if (isset($_SESSION['success_message'])) {
             echo '<div class="text-green-500">' . $_SESSION['success_message'] . '</div>';
             unset($_SESSION['success_message']);
         }
+
         ?>
+
         <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
             <img src="./img/dw.webp" class="h-12" alt="Brainster Logo"/>
             <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Brainster Library</span>
         </a>
         <div class="flex md:order-2 space-x-5 rtl:space-x-reverse">
-            <?php if (isset($_SESSION['user'])):
+            <?php
 
-                if (isset($_SESSION['success_message'])) {
-                    echo '<div class="bg-green-200 text-green-800 p-4 mb-4">' . $_SESSION['success_message'] . '</div>';
-                    unset($_SESSION['success_message']);
+            if (isset($_SESSION['loggedIn'])) {
+                if (isset($_SESSION['admin'])) {
+                    echo '<a href="./adminPanel"
+                   class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                Admin
+                </a>';
+
                 }
-                ?>
-                <a href="./logOut.php"
+                echo
+
+                '<a href="./logOut.php"
                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                     Logout
-                </a>
+                </a>';
 
-            <?php else: ?>
-                <a href="signUp.php"
+            } else {
+                echo '   <a href="signUp.php"
                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                     Sign Up
                 </a>
                 <a href="login.php"
                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                     Log In
-                </a>
-            <?php endif; ?>
+                </a>';
+            }
+            ?>
+
         </div>
     </div>
 </nav>
@@ -73,7 +84,6 @@
         <button class="btn" id="scrollDownBtn"><i class="fa-solid fa-chevron-down fa-4x text-white"></i></button>
     </div>
 </header>
-
 
 
 <!--filters -->
