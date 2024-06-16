@@ -26,7 +26,6 @@ class LoginUser
         }
 
         if (password_verify($password, $user['password'])) {
-            // Set session variables
             $_SESSION['user'] = $user;
             return true;
         } else {
