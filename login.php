@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -25,16 +26,13 @@
                 <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                     Log In
                 </h1>
-                <form class="space-y-4 md:space-y-6" action="#">
+                <form class="space-y-4 md:space-y-6" action="/backEnd/Classes/loginUser.php">
 
                     <?php
                     session_start();
 
                     if (isset($_SESSION['error_message'])) {
                         echo '<div class=" bg-white rounded text-red-900 py-3 text-center">' . $_SESSION['error_message'] . '</div>';
-                        echo '<form method="POST" action="./login.php">
-    <button type="submit" name="logout" class="text-sm font-light text-gray-500 dark:text-gray-400">Logout</button>
-</form>';
                         unset($_SESSION['error_message']);
 
                     }

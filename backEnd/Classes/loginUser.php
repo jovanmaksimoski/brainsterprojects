@@ -1,9 +1,10 @@
 <?php
 
-namespace backEnd\Classes;
+session_start();
 
 require_once("dbConnection.php");
 
+use backEnd\Classes\DbConnection;
 class LoginUser
 {
     protected \PDO $_db;
@@ -15,36 +16,25 @@ class LoginUser
 
     public function login($email, $password)
     {
-
-        $adminEmail = "admin@admin.com";
-        $adminPasswordHash = password_hash("Admin1234a", PASSWORD_DEFAULT);
-
-        if ($email === $adminEmail) {
-            if (password_verify($password, $adminPasswordHash)) {
-                return true;
-            } else {
-                return "Incorrect password";
-            }
-        }
-
         $stmt = $this->_db->prepare("SELECT * FROM users WHERE email = ?");
         $stmt->execute([$email]);
         $user = $stmt->fetch(\PDO::FETCH_ASSOC);
 
         if (!$user) {
-            return "User not found";
+            $_SESSION['error_message'] = "User not found";
+            return false;
         }
 
         if (password_verify($password, $user['password'])) {
-
+            // Set session variables
+            $_SESSION['user'] = $user;
             return true;
+        } else {
+            $_SESSION['error_message'] = "Incorrect password";
+            return false;
         }
-        return "Incorrect password";
-
-
     }
 }
-session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"])) {
     $dbConnection = new DbConnection();
@@ -56,12 +46,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"])) {
 
     if ($result === true) {
         $_SESSION['success_message'] = "<div class='bg-white py-2 px-2 rounded'>Logged in successfully</div>";
-        header("Location: ../../userPage.php");
+        header("Location: ../../index.php");
+        exit();
     } else {
-        $_SESSION['error_message'] = $result;
         header("Location: ../../login.php");
-    } exit;
-
-
+        exit();
+    }
 }
+
 
