@@ -1,4 +1,8 @@
+<?php
 
+session_start();
+
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -26,7 +30,6 @@
                 </h1>
                 <form class="space-y-4 md:space-y-6" action="#">
                     <?php
-                    session_start();
 
                     if (isset($_SESSION['error_message'])) {
                         echo '<div class="text-red-400">' . $_SESSION['error_message'] . '</div>';
