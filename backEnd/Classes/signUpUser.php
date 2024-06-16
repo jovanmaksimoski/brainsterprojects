@@ -1,6 +1,7 @@
 <?php
 
 namespace backEnd\Classes;
+session_start();
 
 require_once ("./dbConnection.php");
 class SignUpUser
@@ -50,6 +51,8 @@ class SignUpUser
 session_start();
 
 
+
+
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["create"])) {
     $dbConnection = new DbConnection();
     $db = $dbConnection->getDbConnection();
@@ -59,12 +62,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["create"])) {
     $result = $signUp->signUp($email, $password);
 
     if ($result === true) {
-        $_SESSION['success_message'] = "Successfully signed up. Welcome!";
+
+        $_SESSION['user'] = '<a href="logOut.php"
+                       class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        Logout
+                    </a>';
+        $_SESSION['success_message'] = "<div class='bg-white py-2 px-2 rounded'>Successfully signed up. Welcome!</div>";
         header("Location: ../../index.php");
-        exit;
+
     } else {
         $_SESSION['error_message'] = $result;
         header("Location: ../../signup.php");
         exit;
     }
-}
+

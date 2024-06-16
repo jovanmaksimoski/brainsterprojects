@@ -9,6 +9,7 @@
       <change beforePath="$PROJECT_DIR$/backEnd/Classes/signUpUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/backEnd/Classes/signUpUser.php" afterDir="false" />
 =======
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/backEnd/Classes/logOut.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/backEnd/Classes/loginUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/backEnd/Classes/loginUser.php" afterDir="false" />
 <<<<<<< HEAD
@@ -21,6 +22,12 @@
 =======
       <change beforePath="$PROJECT_DIR$/userPage.php" beforeDir="false" />
 >>>>>>> login_page
+=======
+      <change beforePath="$PROJECT_DIR$/backEnd/Classes/signUpUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/backEnd/Classes/signUpUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logOut.php" beforeDir="false" afterPath="$PROJECT_DIR$/logOut.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/signUp.php" beforeDir="false" afterPath="$PROJECT_DIR$/signUp.php" afterDir="false" />
+>>>>>>> signup_page
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,18 +62,25 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> login_page
+=======
+>>>>>>> signup_page
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "JavaScript Debug.form.html.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "git-widget-placeholder": "project02",
 =======
     "git-widget-placeholder": "login__page",
 >>>>>>> login_page
+=======
+    "git-widget-placeholder": "signup__page",
+>>>>>>> signup_page
     "last_opened_file_path": "C:/xampp/htdocs/brainster_library2",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
@@ -76,6 +90,7 @@
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "preferences.toDoOptions",
     "vue.rearranger.settings.migration": "true"
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 =======
@@ -101,8 +116,10 @@
 >>>>>>> login_page
 =======
 >>>>>>> login_page
+=======
+>>>>>>> signup_page
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\brainsterprojects_jovanmaksimoski-fs15\frontEnd" />
