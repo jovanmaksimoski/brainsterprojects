@@ -1,10 +1,9 @@
 <?php
+
 namespace backEnd\Classes;
 
 require_once 'Backend/Classes/DbConnection.php';
 
-
-namespace backEnd\Classes;
 
 class Category
 {
@@ -15,15 +14,18 @@ class Category
         $this->db = $db;
     }
 
+
     public function createCategory($category)
     {
         if ($this->categoryExists($category)) {
-            throw new \Exception("Category already exists.");
+            if ($this->isCategorySoftDeleted($category)) {
+                $this->reactivateCategory($category);
+            } else {
+                throw new \Exception("Category '{$category}' already exists.");
+            }
+        } else {
+            $this->insertCategory($category);
         }
-
-        $sql = "INSERT INTO category (category) VALUES (:category)";
-        $stmt = $this->db->prepare($sql);
-        $stmt->execute([':category' => $category]);
     }
 
     public function getCategories()
@@ -49,9 +51,31 @@ class Category
 
     private function categoryExists($category)
     {
-        $sql = "SELECT COUNT(*) FROM category WHERE category = :category AND soft_delete = 0";
+        $sql = "SELECT COUNT(*) FROM category WHERE category = :category";
         $stmt = $this->db->prepare($sql);
         $stmt->execute([':category' => $category]);
         return $stmt->fetchColumn() > 0;
+    }
+
+    private function insertCategory($category)
+    {
+        $sql = "INSERT INTO category (category, soft_delete) VALUES (:category, 0)";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute([':category' => $category]);
+    }
+
+    private function reactivateCategory($category)
+    {
+        $sql = "UPDATE category SET soft_delete = 0 WHERE category = :category";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute([':category' => $category]);
+    }
+
+    private function isCategorySoftDeleted($category)
+    {
+        $sql = "SELECT soft_delete FROM category WHERE category = :category";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute([':category' => $category]);
+        return $stmt->fetchColumn() == 1;
     }
 }

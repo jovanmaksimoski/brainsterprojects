@@ -1,7 +1,6 @@
 <?php
 session_start();
 ?>
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -17,8 +16,8 @@ session_start();
 </head>
 <body class="dark:bg-gray-700">
 
-<section class="max-w-6xl p-10 mx-auto bg-indigo-600 rounded-md shadow-md dark:bg-gray-800 mt-20">
-    <h1 class="text-xl font-bold text-white capitalize text-center dark:text-white">Category</h1>
+<section class="max-w-6xl p-10 mx-auto bg-indigo-600 rounded-md shadow-md dark:bg-gray-800 mt-20 ">
+    <h1 class="text-xl font-bold text-white capitalize text-center dark:text-white text-center">Category</h1>
     <hr class="h-1 mx-auto bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700">
     <div class="flex justify-between">
         <a href="index.php"
@@ -33,7 +32,7 @@ session_start();
     <?php
 
     if (isset($_SESSION['error_message'])): ?>
-        <div class=" mt-5 text-red-500 bg-white py-5 px-5 max-w-2xl gap-4 p-10 mx-auto text-center mt-20">
+        <div class="bg-red-500 text-white px-4 py-2 my-4 rounded-md text-center">
             <?php
             echo htmlspecialchars($_SESSION['error_message']);
             unset($_SESSION['error_message']);
@@ -41,22 +40,35 @@ session_start();
         </div>
     <?php endif; ?>
 
+    <?php
+
+
+    if (isset($_SESSION['success_message'])) {
+        echo '<div class="text-green-500 text-center py-3 ">' . $_SESSION['success_message'] . '</div>';
+        unset($_SESSION['success_message']);
+    }
+
+    ?>
+
     <form action="handleCategory.php" method="post">
         <div class="mt-5">
+
             <label class="text-white dark:text-gray-200" for="category">Category</label>
             <input type="text" name="category" id="category"
+                   value="<?= isset($_GET['category']) ? htmlspecialchars($_GET['category']) : '' ?>"
                    class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+            <?php if (isset($_GET['edit'])): ?>
+                <input type="hidden" name="category_id" value="<?= htmlspecialchars($_GET['edit']) ?>">
+            <?php endif; ?>
         </div>
 
-        <input type="submit" name="action" value="Create"
-               class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm py-2 px-2 mt-5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+        <input type="submit" name="action" value="<?= isset($_GET['edit']) ? 'Edit' : 'Create' ?>"
+               class=" mt-5 cursor-pointer text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
     </form>
 
     <div class="mt-5">
-        <h2 class="text-white text-center ">Existing Categories:</h2>
-        <hr class="h-1 mx-auto bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700">
-
-        <ul class="text-white">
+        <h2 class=" text-gray-800 dark:text-white text-center text-lg font-semibold mb-4">Existing Categories:</h2>
+        <div class="text-white">
             <?php
             require_once 'Backend/Classes/DbConnection.php';
             require_once 'Backend/Classes/Category.php';
@@ -71,20 +83,26 @@ session_start();
 
             if (!empty($categories)) {
                 foreach ($categories as $cat) {
-                    echo '<li class="flex justify-between mt-2">';
-                    echo htmlspecialchars($cat['category']);
-                    echo '<form action="handleCategory.php" method="post" class="flex items-center">';
+                    echo '<hr class="h-1 mx-auto bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700">';
+                    echo '<li class="flex justify-between items-center mt-2">';
+                    echo '<span>' . htmlspecialchars($cat['category']) . '</span>';
+                    echo '<div class="flex items-center">';
+                    echo '<form action="handleCategory.php" method="POST" class="mr-2">';
                     echo '<input type="hidden" name="category_id" value="' . htmlspecialchars($cat['id']) . '">';
                     echo '<input type="hidden" name="category" value="' . htmlspecialchars($cat['category']) . '">';
-                    echo '<input type="submit" name="action" value="Delete" class="ml-2 text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm py-2 px-5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">';
+                    echo '<input type="submit" name="action" value="Delete" class="cursor-pointer text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">';
                     echo '</form>';
+                    echo '<form action="category.php" method="GET">';
+                    echo '<input type="hidden" name="edit" value="' . htmlspecialchars($cat['id']) . '">';
+                    echo '<input type="hidden" name="category" value="' . htmlspecialchars($cat['category']) . '">';
+                    echo '<input type="submit" value="Edit" class="cursor-pointer text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">';
+                    echo '</form>';
+                    echo '</div>';
                     echo '</li>';
                 }
-            } else {
-                echo '<li>No categories found.</li>';
             }
             ?>
-        </ul>
+        </div>
     </div>
 </section>
 </body>
