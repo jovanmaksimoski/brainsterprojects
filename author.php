@@ -22,7 +22,7 @@ $editingAuthor = $isEditing ? $authorService->getAuthorById($_GET['id']) : null;
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Add Book</title>
+    <title>Author</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -46,7 +46,7 @@ $editingAuthor = $isEditing ? $authorService->getAuthorById($_GET['id']) : null;
             Book</a>
     </div>
 
-    <!-- Error Message Display -->
+
     <?php if (isset($_SESSION['error_message'])): ?>
         <div class="bg-red-500 text-white px-4 py-2 my-4 rounded-md text-center">
             <?= $_SESSION['error_message'] ?>

@@ -8,7 +8,7 @@ session_start();
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Add Book</title>
+    <title>Category</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
@@ -90,7 +90,7 @@ session_start();
                     echo '<form action="handleCategory.php" method="POST" class="mr-2">';
                     echo '<input type="hidden" name="category_id" value="' . htmlspecialchars($cat['id']) . '">';
                     echo '<input type="hidden" name="category" value="' . htmlspecialchars($cat['category']) . '">';
-                    echo '<input type="submit" name="action" value="Delete" class="cursor-pointer text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">';
+                    echo '<input type="submit" name="action" value="Delete" id="Delete" class="cursor-pointer text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">';
                     echo '</form>';
                     echo '<form action="category.php" method="GET">';
                     echo '<input type="hidden" name="edit" value="' . htmlspecialchars($cat['id']) . '">';

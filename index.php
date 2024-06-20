@@ -1,11 +1,16 @@
 <?php
-
 session_start();
 
-
+require_once 'backEnd/Classes/DbConnection.php';
 require_once 'backEnd/Classes/Books.php';
 
-$book = new \backEnd\Classes\Book();
+use backEnd\Classes\DbConnection;
+use backEnd\Classes\Books;
+
+$dbConnection = new DbConnection();
+$db = $dbConnection->getDbConnection();
+
+$book = new Books($db);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['action'])) {
@@ -23,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-$books = $book->getBooks();
+$books = $book->getAllBooks();
 
 ?>
 
@@ -32,21 +37,21 @@ $books = $book->getBooks();
 <head>
 
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-              integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-              crossorigin="anonymous" referrerpolicy="no-referrer"/>
-        <meta charset="UTF-8">
-        <meta name="viewport"
-              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Brainster Library</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+          integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Brainster Library</title>
 
-        <script src="https://cdn.tailwindcss.com"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-        <link rel="stylesheet" href="./style.css">
-    </head>
-    <body class="scroll-smooth dark:bg-gray-900">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body class="scroll-smooth dark:bg-gray-900">
 
 
 <!--Nav Bar -->
@@ -199,92 +204,52 @@ $books = $book->getBooks();
     </div>
 </div>
 
-    
-    <!--book  section -->
 
-<!--    <div class="dark:bg-gray-900 header md:flex-wrap">-->
-<!--        <div class=" gap-10 flex flex-row  justify-center items-center">-->
-<!--            <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">-->
-<!--                <a href="#">-->
-<!--                    <img class="rounded-t-lg" src="./img/dw.webp" alt=""/>-->
-<!--                </a>-->
-<!--                <hr>-->
-<!---->
-<!--                <div class="p-5">-->
-<!--                    <a href="#">-->
-<!--                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white text-center">Book-->
-<!--                            Title</h5>-->
-<!--                    </a>-->
-<!--                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Author:</p>-->
-<!--                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Category:</p>-->
-<!--                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Biography:</p>-->
-<!--                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Published:</p>-->
-<!--                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Pages:</p>-->
-<!--                </div>-->
-<!--            </div>-->
-<!---->
-<!--            -->
-<!---->
-<!--            </div>-->
+        <div class="dark:bg-gray-900 header md:flex-wrap">
+            <div class="gap-10 flex flex-row justify-center items-center img">
+                <?php foreach ($books as $book) : ?>
+                    <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                        <a href="#">
+                            <img class="rounded-t-lg" src="<?= htmlspecialchars($book['cover']) ?>" alt=""/>
+                        </a>
+                        <hr>
 
-
-
-
-    <!-- Meta tags, Tailwind CSS, jQuery -->
-
-<!-- Display Books -->
-<div class="dark:bg-gray-900 header md:flex-wrap">
-    <div class="gap-10 flex flex-row justify-center items-center">
-        <?php foreach ($books as $book): ?>
-            <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                <a href="#">
-                    <img class="rounded-t-lg" src="<?= htmlspecialchars($book['cover_url']) ?>" alt=""/>
-                </a>
-                <hr>
-                <div class="p-5">
-                    <a href="#">
-                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white text-center"><?= htmlspecialchars($book['title']) ?></h5>
-                    </a>
-                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Author: <?= htmlspecialchars($book['author_id']) ?></p>
-                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Category: <?= htmlspecialchars($book['category_id']) ?></p>
-                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Biography: <?= htmlspecialchars($book['biography']) ?></p>
-                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Published: <?= htmlspecialchars($book['year_publication']) ?></p>
-                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Pages: <?= htmlspecialchars($book['pages']) ?></p>
-                    <form method="post" class="mt-5">
-                        <input type="hidden" name="id" value="<?= $book['id'] ?>">
-                        <input type="hidden" name="action" value="delete">
-                        <input type="submit" value="Delete" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm py-2 px-5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
-                    </form>
-                    <form method="post" class="mt-5">
-                        <input type="hidden" name="id" value="<?= $book['id'] ?>">
-                        <input type="hidden" name="action" value="edit">
-                        <!-- Edit form fields (similar to Add form) -->
-                        <input type="submit" value="Edit" class="text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm py-2 px-5 text-center dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800">
-                    </form>
-                </div>
+                        <div class="p-5">
+                            <a href="#">
+                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white text-center">
+                                    <?= htmlspecialchars($book['title']) ?>
+                                </h5>
+                            </a>
+                            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Author: <?= htmlspecialchars($book['author_name']) . ' ' . htmlspecialchars($book['author_lastname']) ?></p>
+                            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Category: <?= htmlspecialchars($book['category']) ?></p>
+                            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Published: <?= htmlspecialchars($book['year_publication']) ?></p>
+                            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Pages: <?= htmlspecialchars($book['pages']) ?></p>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
             </div>
-        <?php endforeach; ?>
+        </div>
+
+<!-- Meta tags, Tailwind CSS, jQuery -->
+
+
+
+
+<!--footer -->
+
+<footer class="bg-white rounded-lg shadow dark:bg-gray-900 m-4">
+    <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
     </div>
-</div>
+    <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8"/>
+    <div id="quote" class="text-sm text-gray-500 sm:text-center dark:text-gray-400 text-center"></div>
+</footer>
+
+
+<script src="javaScript/chervronAnimate.js"></script>
+<script src="javaScript/filter.js"></script>
+<script src="javaScript/quote.js"></script>
+
+
 </body>
 </html>
-
-
-            <!--footer -->
-
-            <footer class="bg-white rounded-lg shadow dark:bg-gray-900 m-4">
-                <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
-                </div>
-                <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8"/>
-                <div id="quote" class="text-sm text-gray-500 sm:text-center dark:text-gray-400 text-center"></div>
-            </footer>
-
-
-            <script src="javaScript/chervronAnimate.js"></script>
-            <script src="javaScript/filter.js"></script>
-            <script src="javaScript/quote.js"></script>
-            <script src="javaScript/fetchData.js"></script>
-
-    </body>
-    </html>
 
