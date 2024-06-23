@@ -29,7 +29,8 @@ class Books
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 
-    public function createBook($title, $author_id, $category_id, $pages, $cover, $year_publication) {
+    public function createBook($title, $author_id, $category_id, $pages, $cover, $year_publication)
+    {
 
         $sql = "SELECT id FROM books WHERE title = :title AND soft_delete = 1";
         $stmt = $this->db->prepare($sql);

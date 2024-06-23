@@ -7,13 +7,19 @@
     <list default="true" id="02eae611-7b93-4ff9-ab28-73d202018f9d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminComments.php" beforeDir="false" afterPath="$PROJECT_DIR$/adminComments.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adminPanel.php" beforeDir="false" afterPath="$PROJECT_DIR$/adminPanel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/author.php" beforeDir="false" afterPath="$PROJECT_DIR$/author.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backEnd/Classes/Books.php" beforeDir="false" afterPath="$PROJECT_DIR$/backEnd/Classes/Books.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backEnd/Classes/dbConnection.php" beforeDir="false" afterPath="$PROJECT_DIR$/backEnd/Classes/dbConnection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backEnd/Classes/Comment.php" beforeDir="false" afterPath="$PROJECT_DIR$/backEnd/Classes/Comment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backEnd/Classes/Note.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/backEnd/Classes/loginUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/backEnd/Classes/loginUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backEnd/Classes/signUpUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/backEnd/Classes/signUpUser.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javaScript/filter.js" beforeDir="false" afterPath="$PROJECT_DIR$/javaScript/filter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loadComments.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/saveComment.php" beforeDir="false" afterPath="$PROJECT_DIR$/saveComment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/signUp.php" beforeDir="false" afterPath="$PROJECT_DIR$/signUp.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/viewCart.php" beforeDir="false" afterPath="$PROJECT_DIR$/viewCart.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,23 +52,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;JavaScript Debug.form.html.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;admin__page&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/xampp/htdocs/brainster_library2&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.toDoOptions&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JavaScript Debug.form.html.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "admin__page",
+    "last_opened_file_path": "C:/xampp2/htdocs/brainsterprojects_jovanmaksimoski-fs15",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.toDoOptions",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\xampp2\htdocs\brainsterprojects_jovanmaksimoski-fs15\backEnd\Classes" />
@@ -101,7 +107,9 @@
       <workItem from="1718895591078" duration="13342000" />
       <workItem from="1718982695448" duration="9316000" />
       <workItem from="1719079033124" duration="9107000" />
-      <workItem from="1719128032802" duration="10562000" />
+      <workItem from="1719128032802" duration="10798000" />
+      <workItem from="1719138994274" duration="29000" />
+      <workItem from="1719139371826" duration="17829000" />
     </task>
     <servers />
   </component>

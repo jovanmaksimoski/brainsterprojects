@@ -16,36 +16,14 @@ class Comment
 
     public function createComment($commentary, $userId, $bookId)
     {
-//            $statusComm = 'pending';
-//
-//            $stmt = $this->db->prepare("INSERT INTO public_comments (commentary, user_id, status_comm, book_id)
-//                                       VALUES (:commentary, :user_id, :status_comm, :book_id)");
-//            $stmt->bindParam(':commentary', $commentary);
-//            $stmt->bindParam(':user_id', $userId);
-//            $stmt->bindParam(':status_comm', $statusComm);
-//            $stmt->bindParam(':book_id', $bookId);
-//
-//            return $stmt->execute();
-
-        $stmt = $this->db->prepare("SELECT COUNT(*) FROM public_comments WHERE id = :user_id");
-        $stmt->bindParam(':user_id', $userId, \PDO::PARAM_INT);
-        $stmt->execute();
-        $userExists = $stmt->fetchColumn();
-
-        if (!$userExists) {
-            // Handle the case where the user does not exist
-            return false;
-        }
-
-        // Proceed with inserting the comment
-//            $statusComm = 'pending';
+        $statusComm = 'pending';
 
         $stmt = $this->db->prepare("INSERT INTO public_comments (commentary, user_id, status_comm, book_id)
-                               VALUES (:commentary, :user_id, :status_comm, :book_id)");
+                                       VALUES (:commentary, :user_id, :status_comm, :book_id)");
         $stmt->bindParam(':commentary', $commentary);
-        $stmt->bindParam(':user_id', $userId, \PDO::PARAM_INT);
+        $stmt->bindParam(':user_id', $userId);
         $stmt->bindParam(':status_comm', $statusComm);
-        $stmt->bindParam(':book_id', $bookId, \PDO::PARAM_INT);
+        $stmt->bindParam(':book_id', $bookId);
 
         return $stmt->execute();
 
@@ -78,10 +56,25 @@ class Comment
 
     public function getCommentsByBookId($bookId)
     {
-        $query = "SELECT commentary FROM public_comments WHERE book_id = :book_id";
+        $query = "SELECT commentary,user_id ,id FROM public_comments WHERE book_id = :book_id AND status_comm = 1";
         $stmt = $this->db->prepare($query);
         $stmt->bindValue(':book_id', $bookId, \PDO::PARAM_INT);
         $stmt->execute();
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    public function approveComment($commentId)
+    {
+        $statusComm = 1;
+        $stmt = $this->db->prepare("UPDATE public_comments SET status_comm = :status_comm WHERE id = :id");
+        $stmt->bindParam(':status_comm', $statusComm);
+        $stmt->bindParam(':id', $commentId);
+        return $stmt->execute();
+    }
+
+    public function getAllComments()
+    {
+        $stmt = $this->db->query("SELECT * FROM public_comments");
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 }

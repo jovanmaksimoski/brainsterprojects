@@ -3,14 +3,18 @@ session_start();
 require_once 'backEnd/Classes/DbConnection.php';
 require_once 'backEnd/Classes/Books.php';
 require_once ('backEnd/Classes/Comment.php');
+require_once ("backEnd/Classes/category.php");
 
 use backEnd\Classes\DbConnection;
 use backEnd\Classes\Books;
 use backEnd\Classes\Comment;
+use backend\Classes\category;
 
 $dbConnection = new DbConnection();
 $db = $dbConnection->getDbConnection();
 
+
+$categories = new \backEnd\Classes\category($db);
 $book = new Books($db);
 $comment = new Comment($db);
 
@@ -32,6 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 $books = $book->getAllBooks();
+$category = $categories->getCategories();
 
 
 ?>
@@ -47,12 +52,12 @@ $books = $book->getAllBooks();
     <title>Brainster Library</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<!--    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>-->
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./style.css">
 </head>
 <body class="scroll-smooth dark:bg-gray-900">
 
-<!-- Nav Bar -->
+
 <nav class="bg-white border-gray-200 dark:bg-gray-900">
     <div class="flex flex-wrap items-center justify-between p-4">
         <?php
@@ -81,7 +86,6 @@ $books = $book->getAllBooks();
     </div>
 </nav>
 
-<!-- Header section -->
 <header class="div">
     <div class="bg-cover bg-center min-h-screen flex justify-center items-center">
         <div class="flex flex-col justify-center items-center">
@@ -93,32 +97,29 @@ $books = $book->getAllBooks();
     </div>
 </header>
 
-<!-- Filters -->
-<div class="flex flex-col items-center justify-center p-5 ">
+<div class="flex flex-col items-center justify-center p-5">
     <button id="dropdownDefault" data-dropdown-toggle="dropdown" class="text-white bg-blue-700 hover:bg-blue-800 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" type="button">
         Filter by category
         <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
         </svg>
     </button>
-    <!-- Dropdown menu -->
     <div id="dropdown" class="z-10 hidden w-56 p-3 bg-white rounded-lg shadow dark:bg-gray-700 mt-5">
         <h6 class="mb-3 text-sm font-medium text-gray-900 dark:text-white">Category</h6>
         <ul class="space-y-2 text-sm" aria-labelledby="dropdownDefault">
-            <!-- Add more categories as needed -->
-            <li class="flex items-center">
-                <input id="html" type="checkbox" value="HTML" class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"/>
-                <label for="html" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100">HTML</label>
-            </li>
-            <!-- Repeat for other categories -->
+            <?php foreach ($category as $categories): ?>
+                <li class="flex items-center">
+                    <input id="<?= $categories['category'] ?>" type="checkbox" value="<?= ($categories['category']) ?>" class="category-checkbox w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"/>
+                    <label for="<?= $categories['category'] ?>" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100"><?= htmlspecialchars($categories['category']) ?></label>
+                </li>
+            <?php endforeach; ?>
         </ul>
     </div>
 </div>
 
-<!-- Books section -->
 <div class="dark:bg-gray-900 header md:flex-wrap cursor-pointer">
 
-    <div class="gap-10 flex flex-row justify-center items-center img">
+    <div class="gap-10 flex flex-row justify-center items-center img ">
         <?php foreach ($books as $book) : ?>
             <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 book-card" data-book='<?= json_encode($book) ?>'>
                 <a >
@@ -131,11 +132,9 @@ $books = $book->getAllBooks();
                     </a>
                     <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Author: <?= htmlspecialchars($book['author_name']) . ' ' . htmlspecialchars($book['author_lastname']) ?></p>
                     <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Category: <?= htmlspecialchars($book['category']) ?></p>
-<!--                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Published: --><?php //= htmlspecialchars($book['year_publication']) ?><!--</p>-->
-<!--                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Pages: --><?php //= htmlspecialchars($book['pages']) ?><!--</p>-->
                 </div>
                 <div class="flex justify-end p-5">
-                    <a id="cart-button" href="viewCart.php" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">View Cart</a>
+                    <a id="cart-button" href="viewCart.php?id=<?= $book['id'] ?>" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">View Book</a>
                 </div>
             </div>
         <?php endforeach; ?>

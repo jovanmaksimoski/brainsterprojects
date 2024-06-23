@@ -31,11 +31,9 @@ class LoginUser
         }
 
         if (password_verify($password, $user['password'])) {
-
-//            $_SESSION['userId'] = $user['id'];
-//            $_SESSION['user'] = $user;
+            $_SESSION['userId'] = $user['id'];
+            $_SESSION['user'] = $user;
             return true;
-
 
         } else {
             $_SESSION['error_message'] = "Incorrect password";

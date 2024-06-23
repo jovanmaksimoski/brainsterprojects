@@ -56,7 +56,6 @@ $editingBook = $isEditing ? $bookService->getBookById($_GET['id']) : null;
            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Category</a>
     </div>
 
-    <!-- Add/Edit Book Form -->
     <form method="POST" action="handleBooks.php">
         <hr class="h-1 mx-auto bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700">
 

@@ -1,5 +1,5 @@
 <?php
-session_start(); // Start session if not already started
+session_start();
 
 require_once 'backEnd/Classes/DbConnection.php';
 require_once 'backEnd/Classes/Comment.php';
@@ -7,15 +7,13 @@ require_once 'backEnd/Classes/Comment.php';
 use backEnd\Classes\DbConnection;
 use backEnd\Classes\Comment;
 
-// Instantiate DbConnection and get the PDO connection
 $dbConnection = new DbConnection();
 $db = $dbConnection->getDbConnection();
 
-// Instantiate the Comment class with the PDO connection
+
 $comment = new Comment($db);
 
-// Check if the request method is POST
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header("Location: index.php");
     exit;
 }
@@ -30,7 +28,7 @@ if ($action === 'create') {
 
     if ($comment->createComment($commentary, $userId, $bookId)) {
         echo "Comment created successfully!";
-//        header('Location: index.php');
+        header('Location: index.php');
     } else {
         echo "Failed to create comment.";
     }
@@ -59,6 +57,7 @@ if ($action === 'create') {
 
     if ($comment->deleteComment($commentId)) {
         echo "Comment deleted successfully!";
+        return header('Location: index.php');
     } else {
         echo "Failed to delete comment.";
     }
