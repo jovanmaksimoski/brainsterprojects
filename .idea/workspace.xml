@@ -6,7 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="02eae611-7b93-4ff9-ab28-73d202018f9d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminComments.php" beforeDir="false" afterPath="$PROJECT_DIR$/adminComments.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backEnd/Classes/Author.php" beforeDir="false" afterPath="$PROJECT_DIR$/backEnd/Classes/Author.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backEnd/Classes/signUpUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/backEnd/Classes/signUpUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/category.php" beforeDir="false" afterPath="$PROJECT_DIR$/category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/j.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/s.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/wwwatercolor.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javaScript/filter.js" beforeDir="false" afterPath="$PROJECT_DIR$/javaScript/filter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javaScript/notes.js" beforeDir="false" afterPath="$PROJECT_DIR$/javaScript/notes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/viewCart.php" beforeDir="false" afterPath="$PROJECT_DIR$/viewBook.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

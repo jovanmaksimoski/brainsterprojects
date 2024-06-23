@@ -47,6 +47,7 @@ $comments = $comment->getCommentsByBookId($_GET['id']);
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </head>
 <body class="dark:bg-gray-900 header md:flex-wrap cursor-pointer">
@@ -80,7 +81,7 @@ $comments = $comment->getCommentsByBookId($_GET['id']);
             </button>
 
             <form class="comment-form mt-5 hidden text-white" action="saveComment.php" method="POST">
-                <label for="comment-text">Leave a comment</label>
+                <label for="comment-text">Leave a comment:</label>
                 <textarea id="comment-text" name="commentary"
                           class="w-full p-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:text-white"></textarea>
                 <input type="hidden" class="comment-book-id" name="book_id"
@@ -91,17 +92,17 @@ $comments = $comment->getCommentsByBookId($_GET['id']);
                 </button>
             </form>
 
-            <form class="note-form mt-5 hidden text-white" action="" method="POST">
-                <label for="note-text">Note</label>
-                <textarea id="note-text" name="note-text"
-                          class="w-full p-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:text-white"></textarea>
-                <button id="note" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-3">
-                    Submit Note
+            <form id="add-note-form" class="note-form mt-5">
+                <label for="note-text" class="text-white px-2">Note:</label>
+                <textarea id="note-text" name="note-text" class="w-full p-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:text-white"></textarea>
+                <button type="button" id="add-note" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-3">
+                    Add Note
                 </button>
             </form>
-            <div id="display-note text-right  text-white mt-5">
-
+            <div id="note-list" class="mt-5 text-white text-right ">
             </div>
+
+
             <?php foreach ($comments as $comment): ?>
 
                 <hr class="h-1 bg-gray-200 dark:bg-gray-600 border-0 rounded mb-8 mt-8">
@@ -125,6 +126,7 @@ $comments = $comment->getCommentsByBookId($_GET['id']);
     </div>
 </div>
 </div>
+
 <script src="javaScript/notes.js"></script>
 <script src="javaScript/viewCartButton.js"></script>
 

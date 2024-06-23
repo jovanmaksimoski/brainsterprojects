@@ -67,7 +67,7 @@ session_start();
     </form>
 
     <div class="mt-5">
-        <h2 class=" text-gray-800 dark:text-white text-center text-lg font-semibold mb-4">Existing Categories:</h2>
+        <h2 class=" text-gray-800 dark:text-white text-center text-lg font-semibold ">Existing Categories:</h2>
         <div class="text-white">
             <?php
             require_once 'Backend/Classes/DbConnection.php';
@@ -83,7 +83,7 @@ session_start();
 
             if (!empty($categories)) {
                 foreach ($categories as $cat) {
-                    echo '<hr class="h-1 mx-auto bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700">';
+                    echo '<hr class="h-1 mx-auto bg-gray-100 border-0 rounded my-4 dark:bg-gray-700">';
                     echo '<li class="flex justify-between items-center mt-2">';
                     echo '<span>' . htmlspecialchars($cat['category']) . '</span>';
                     echo '<div class="flex items-center">';

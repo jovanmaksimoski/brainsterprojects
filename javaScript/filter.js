@@ -14,7 +14,6 @@ window.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-
 document.addEventListener("DOMContentLoaded", function () {
     const checkboxes = document.querySelectorAll(".category-checkbox");
     const bookCards = document.querySelectorAll(".book-card");
@@ -31,15 +30,14 @@ document.addEventListener("DOMContentLoaded", function () {
             .map(checkbox => checkbox.value);
 
         bookCards.forEach(card => {
-            const bookCategory = card.getAttribute("data-category");
+            const bookData = JSON.parse(card.getAttribute("data-book"));
+            const bookCategory = bookData.category;
+
             if (selectedCategories.length === 0 || selectedCategories.includes(bookCategory)) {
                 card.style.display = "block";
             } else {
                 card.style.display = "none";
             }
-
         });
     }
 });
-
-

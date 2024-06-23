@@ -18,7 +18,6 @@ class Author
     {
         if ($this->authorExists($author_name, $author_lastname)) {
             if ($this->isAuthorSoftDeleted($author_name, $author_lastname)) {
-                // Author exists but is soft-deleted, reactivate it
                 $this->reactivateAuthor($author_name, $author_lastname);
             } else {
                 throw new \Exception("Author '{$author_name} {$author_lastname}' already exists.");
@@ -47,12 +46,6 @@ class Author
         $stmt->execute([':author_id' => $author_id]);
     }
 
-    public function recoverAuthor($author_id)
-    {
-        $sql = "UPDATE author SET soft_delete = 0 WHERE id = :author_id";
-        $stmt = $this->db->prepare($sql);
-        $stmt->execute([':author_id' => $author_id]);
-    }
 
     public function getAllAuthors()
     {

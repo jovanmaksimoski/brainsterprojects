@@ -91,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['action']) && $_GET['act
                 </th>
                 <th scope="col" class="px-6 py-3">
                     <div class="flex items-center">
-                        Status Comm
+                        Status Comm (0 pending , 1 aproved)
 
                     </div>
                 </th>

@@ -88,7 +88,7 @@ $category = $categories->getCategories();
     <div class="bg-cover bg-center min-h-screen flex justify-center items-center">
         <div class="flex flex-col justify-center items-center">
             <a href="./login.php">
-                <h1 class="text-white text-7xl text-center font-bold bg-dark-900 py-10 px-5 rounded underline">WELCOME TO THE BRAINSTER LIBRARY</h1>
+                <h1 class="text-white text-6xl text-center font-bold bg-dark-900 py-10 px-5 rounded ">WELCOME TO THE BRAINSTER LIBRARY</h1>
             </a>
         </div>
         <button class="btn" id="scrollDownBtn"><i class="fa-solid fa-chevron-down fa-4x text-white"></i></button>
@@ -96,6 +96,7 @@ $category = $categories->getCategories();
 </header>
 
 <div class="flex flex-col items-center justify-center p-5">
+    <label for="dropdownDefaul"></label>
     <button id="dropdownDefault" data-dropdown-toggle="dropdown" class="text-white bg-blue-700 hover:bg-blue-800 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" type="button">
         Filter by category
         <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -107,7 +108,7 @@ $category = $categories->getCategories();
         <ul class="space-y-2 text-sm" aria-labelledby="dropdownDefault">
             <?php foreach ($category as $categories): ?>
                 <li class="flex items-center">
-                    <input id="<?= $categories['category'] ?>" type="checkbox" value="<?= ($categories['category']) ?>" class="category-checkbox w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"/>
+                    <input id="<?= $categories['category'] ?>" type="checkbox" value="<?= htmlspecialchars($categories['category']) ?>" class="category-checkbox w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 dark:focus:ring-primary-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"/>
                     <label for="<?= $categories['category'] ?>" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-100"><?= htmlspecialchars($categories['category']) ?></label>
                 </li>
             <?php endforeach; ?>
@@ -117,13 +118,13 @@ $category = $categories->getCategories();
 
 <div class="dark:bg-gray-900 header md:flex-wrap cursor-pointer">
 
-    <div class="gap-10 flex flex-row justify-center   ">
+    <div class="gap-8 flex flex-row justify-center flex-wrap  ">
         <?php foreach ($books as $book) : ?>
             <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 book-card" data-book='<?= json_encode($book) ?>'>
                 <a >
                     <img class="rounded-t-lg img w-100" src="<?= htmlspecialchars($book['cover']) ?>" alt=""/>
                 </a>
-                <hr>
+                <hr class="h-2 bg-gray-200 dark:bg-gray-600 border-0  ">
                 <div class="p-5">
                     <a >
                         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white text-center"><?= htmlspecialchars($book['title']) ?></h5>
@@ -132,46 +133,13 @@ $category = $categories->getCategories();
                     <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Category: <?= htmlspecialchars($book['category']) ?></p>
                 </div>
                 <div class="flex justify-end p-5">
-                    <a id="cart-button" href="viewCart.php?id=<?= $book['id'] ?>" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 flex flex-end rounded">View Book</a>
+                    <a id="cart-button" href="viewBook.php?id=<?= $book['id'] ?>" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 flex flex-end rounded">View Book</a>
                 </div>
             </div>
         <?php endforeach; ?>
     </div>
 </div>
 
-
-
-<div id="cart-modal" class="fixed z-50 inset-0 overflow-y-auto hidden">
-    <div class="flex items-center justify-center min-h-screen">
-        <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg p-10 max-w-4xl w-full">
-            <div class="flex justify-end">
-                <button id="close-modal" class="text-red-500 font-bold">X</button>
-            </div>
-            <div id="cart-content" class="mt-5">
-                <div id="comment-list">
-
-                </div>
-            </div>
-            <div class="mt-5">
-                <button id="add-comment" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add Comment</button>
-                <button id="add-note" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add Note</button>
-            </div>
-
-            <form id="comment-form" class="mt-5 hidden text-white" action="saveComment.php" method="POST">
-                <label for="comment-text">Leave a comment</label>
-                <textarea id="comment-text" name="commentary" class="w-full p-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:text-white"></textarea>
-                <input type="hidden" id="comment-book-id" name="book_id" value="">
-                <input type="hidden" name="user_id" value="<?= htmlspecialchars($_SESSION['userId']) ?>">
-                <button type="submit" name="action" value="create" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-3">Submit Comment</button>
-            </form>
-            <form id="note-form" class="mt-5 hidden text-white" action="saveNote.php" method="POST">
-                <label for="note-text">Note</label>
-                <textarea id="note-text" name="note-text" class="w-full p-2 border border-gray-300 rounded-md dark:bg-gray-700 dark:text-white"></textarea>
-                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-3">Submit Note</button>
-            </form>
-        </div>
-    </div>
-</div>
 <footer class="bg-white rounded-lg shadow dark:bg-gray-900 m-4">
     <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8"></div>
     <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8"/>
