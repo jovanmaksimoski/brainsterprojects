@@ -20,8 +20,6 @@ function fetchAndDisplayNotes() {
 }
 
 fetchAndDisplayNotes();
-
-// Event listener for adding a new note
 noteButton.addEventListener("click", () => {
     const commentary = notesInput.value;
     const userId = userIdInput.value;
