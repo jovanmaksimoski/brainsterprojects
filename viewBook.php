@@ -73,12 +73,14 @@ $comments = $comment->getCommentsByBookId($_GET['id']);
                 Published: <?= htmlspecialchars($books['year_publication']) ?></p>
             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
                 Pages: <?= htmlspecialchars($books['pages']) ?></p>
-
+            <a href="index.php"
+               class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-3">Home</a>
             <button class="add-comment-btn bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add
                 Comment
             </button>
             <button class="add-note-btn bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add Note
             </button>
+
 
             <form class="comment-form mt-5 hidden text-white" action="saveComment.php" method="POST">
                 <label for="comment-text">Leave a comment:</label>
