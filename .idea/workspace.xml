@@ -5,11 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="02eae611-7b93-4ff9-ab28-73d202018f9d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adminPanel.php" beforeDir="false" afterPath="$PROJECT_DIR$/adminPanel.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/author.php" beforeDir="false" afterPath="$PROJECT_DIR$/author.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backEnd/Classes/Books.php" beforeDir="false" afterPath="$PROJECT_DIR$/backEnd/Classes/Books.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/category.php" beforeDir="false" afterPath="$PROJECT_DIR$/category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backEnd/Classes/dbConnection.php" beforeDir="false" afterPath="$PROJECT_DIR$/backEnd/Classes/dbConnection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backEnd/Classes/loginUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/backEnd/Classes/loginUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backEnd/Classes/signUpUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/backEnd/Classes/signUpUser.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -95,7 +98,10 @@
       <workItem from="1718636709708" duration="11164000" />
       <workItem from="1718726285654" duration="11944000" />
       <workItem from="1718809402917" duration="13368000" />
-      <workItem from="1718895591078" duration="11967000" />
+      <workItem from="1718895591078" duration="13342000" />
+      <workItem from="1718982695448" duration="9316000" />
+      <workItem from="1719079033124" duration="9107000" />
+      <workItem from="1719128032802" duration="10562000" />
     </task>
     <servers />
   </component>

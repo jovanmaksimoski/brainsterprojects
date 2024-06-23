@@ -136,6 +136,8 @@ class Books
         $count = $stmt->fetchColumn();
         return $count > 0;
     }
+
+
 }
 
 

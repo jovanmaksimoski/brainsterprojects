@@ -15,6 +15,7 @@ $authors = $authorService->getAllAuthors();
 $isEditing = isset($_GET['id']);
 $editingAuthor = $isEditing ? $authorService->getAuthorById($_GET['id']) : null;
 ?>
+
 <!doctype html>
 <html lang="en">
 <head>

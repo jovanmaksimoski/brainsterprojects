@@ -5,6 +5,7 @@ session_start();
 require_once("dbConnection.php");
 
 use backEnd\Classes\DbConnection;
+
 class LoginUser
 {
     protected \PDO $_db;
@@ -24,13 +25,18 @@ class LoginUser
             $_SESSION['error_message'] = "User not found";
             return false;
         }
-        if($user['email'] == 'admin@gmail.com') {
+
+        if ($user['email'] == 'admin@gmail.com') {
             $_SESSION['admin'] = true;
         }
 
         if (password_verify($password, $user['password'])) {
-            $_SESSION['user'] = $user;
+
+//            $_SESSION['userId'] = $user['id'];
+//            $_SESSION['user'] = $user;
             return true;
+
+
         } else {
             $_SESSION['error_message'] = "Incorrect password";
             return false;
@@ -45,6 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"])) {
     $email = $_POST["email"];
     $password = $_POST["password"];
     $result = $loginUser->login($email, $password);
+
 
     if ($result === true) {
         $_SESSION['success_message'] = "<div class='bg-white py-2 px-2 rounded'>Logged in successfully</div>";

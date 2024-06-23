@@ -3,7 +3,8 @@
 namespace backEnd\Classes;
 session_start();
 
-require_once ("./dbConnection.php");
+require_once("./dbConnection.php");
+
 class SignUpUser
 {
     protected \PDO $_db;
@@ -44,13 +45,10 @@ class SignUpUser
         return true;
 
 
-
     }
 }
 
 session_start();
-
-
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["create"])) {

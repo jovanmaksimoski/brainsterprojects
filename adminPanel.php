@@ -34,7 +34,6 @@ $editingBook = $isEditing ? $bookService->getBookById($_GET['id']) : null;
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<!--    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>-->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script
@@ -46,9 +45,15 @@ $editingBook = $isEditing ? $bookService->getBookById($_GET['id']) : null;
     <h1 class="text-xl font-bold text-white capitalize text-center dark:text-white">Add Books</h1>
 
     <div class="flex justify-between py-5">
-        <a href="index.php" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Home</a>
-        <a href="author.php" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Author</a>
-        <a href="category.php" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Category</a>
+
+        <a href="index.php"
+           class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Home</a>
+        <a href="adminComments.php"
+           class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Comments</a>
+        <a href="author.php"
+           class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Author</a>
+        <a href="category.php"
+           class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Category</a>
     </div>
 
     <!-- Add/Edit Book Form -->
@@ -72,27 +77,36 @@ $editingBook = $isEditing ? $bookService->getBookById($_GET['id']) : null;
         <div class="grid grid-cols-2 gap-10 mt-4 sm:grid-cols-1 mt-5">
             <div>
                 <label class="text-white dark:text-gray-200" for="title">Book Title</label>
-                <input id="title" name="title" type="text" value="<?= $isEditing ? htmlspecialchars($editingBook['title']) : '' ?>" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+                <input id="title" name="title" type="text"
+                       value="<?= $isEditing ? htmlspecialchars($editingBook['title']) : '' ?>"
+                       class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
             </div>
 
             <div>
                 <label class="text-white dark:text-gray-200" for="cover">Image Url</label>
-                <input id="cover" name="cover" type="text" value="<?= $isEditing ? htmlspecialchars($editingBook['cover']) : '' ?>" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+                <input id="cover" name="cover" type="text"
+                       value="<?= $isEditing ? htmlspecialchars($editingBook['cover']) : '' ?>"
+                       class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
             </div>
 
             <div>
                 <label class="text-white dark:text-gray-200" for="pages">Pages</label>
-                <input id="pages" name="pages" type="number" value="<?= $isEditing ? htmlspecialchars($editingBook['pages']) : '' ?>" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+                <input id="pages" name="pages" type="number"
+                       value="<?= $isEditing ? htmlspecialchars($editingBook['pages']) : '' ?>"
+                       class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
             </div>
 
             <div>
                 <label class="text-white dark:text-gray-200" for="year_publication">Published</label>
-                <input id="year_publication" name="year_publication" type="number" value="<?= $isEditing ? htmlspecialchars($editingBook['year_publication']) : '' ?>" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+                <input id="year_publication" name="year_publication" type="number"
+                       value="<?= $isEditing ? htmlspecialchars($editingBook['year_publication']) : '' ?>"
+                       class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
             </div>
 
             <div>
                 <label class="text-white dark:text-gray-200" for="author_id">Author</label>
-                <select id="author_id" name="author_id" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+                <select id="author_id" name="author_id"
+                        class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
                     <?php
                     $authors = $bookService->getAuthors();
                     foreach ($authors as $author) {
@@ -105,7 +119,8 @@ $editingBook = $isEditing ? $bookService->getBookById($_GET['id']) : null;
 
             <div>
                 <label class="text-white dark:text-gray-200" for="category_id">Category</label>
-                <select id="category_id" name="category_id" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+                <select id="category_id" name="category_id"
+                        class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
                     <?php
                     $categories = $bookService->getCategories();
                     foreach ($categories as $category) {
@@ -116,10 +131,12 @@ $editingBook = $isEditing ? $bookService->getBookById($_GET['id']) : null;
                 </select>
             </div>
 
-        <div class="mt-8">
-            <input type="hidden" name="book_id" value="<?= $isEditing ? htmlspecialchars($editingBook['id']) : '' ?>">
-            <input type="submit" name="action" value="<?= $isEditing ? 'Edit Book' : 'Add Book' ?>" class="cursor-pointer text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-        </div>
+            <div class="mt-8">
+                <input type="hidden" name="book_id"
+                       value="<?= $isEditing ? htmlspecialchars($editingBook['id']) : '' ?>">
+                <input type="submit" name="action" value="<?= $isEditing ? 'Edit Book' : 'Add Book' ?>"
+                       class="cursor-pointer text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            </div>
     </form>
 
     <div>
@@ -134,9 +151,11 @@ $editingBook = $isEditing ? $bookService->getBookById($_GET['id']) : null;
                             <div class="flex items-center">
                                 <form action="handleBooks.php" method="POST" class="mr-2">
                                     <input type="hidden" name="book_id" value="<?= htmlspecialchars($book['id']) ?>">
-                                    <input type="submit" name="action" value="Delete"  id="Delete" class="cursor-pointer text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                    <input type="submit" name="action" value="Delete" id="Delete"
+                                           class="cursor-pointer text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                 </form>
-                                <a href="adminPanel.php?id=<?= htmlspecialchars($book['id']) ?>" class="cursor-pointer text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Edit</a>
+                                <a href="adminPanel.php?id=<?= htmlspecialchars($book['id']) ?>"
+                                   class="cursor-pointer text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Edit</a>
                             </div>
                         </li>
                     <?php endforeach; ?>
