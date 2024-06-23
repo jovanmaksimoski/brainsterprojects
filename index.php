@@ -40,8 +40,6 @@ $category = $categories->getCategories();
 
 
 ?>
-
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -119,11 +117,11 @@ $category = $categories->getCategories();
 
 <div class="dark:bg-gray-900 header md:flex-wrap cursor-pointer">
 
-    <div class="gap-10 flex flex-row justify-center items-center img ">
+    <div class="gap-10 flex flex-row justify-center   ">
         <?php foreach ($books as $book) : ?>
             <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 book-card" data-book='<?= json_encode($book) ?>'>
                 <a >
-                    <img class="rounded-t-lg" src="<?= htmlspecialchars($book['cover']) ?>" alt=""/>
+                    <img class="rounded-t-lg img w-100" src="<?= htmlspecialchars($book['cover']) ?>" alt=""/>
                 </a>
                 <hr>
                 <div class="p-5">
@@ -134,7 +132,7 @@ $category = $categories->getCategories();
                     <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Category: <?= htmlspecialchars($book['category']) ?></p>
                 </div>
                 <div class="flex justify-end p-5">
-                    <a id="cart-button" href="viewCart.php?id=<?= $book['id'] ?>" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">View Book</a>
+                    <a id="cart-button" href="viewCart.php?id=<?= $book['id'] ?>" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 flex flex-end rounded">View Book</a>
                 </div>
             </div>
         <?php endforeach; ?>
@@ -150,14 +148,8 @@ $category = $categories->getCategories();
                 <button id="close-modal" class="text-red-500 font-bold">X</button>
             </div>
             <div id="cart-content" class="mt-5">
-                <!-- Existing modal content -->
                 <div id="comment-list">
-                    <!-- Fetch comments using book id -->
-                    <?php
-                    // Assuming $comment is already instantiated and you have the book ID
-                    // $comments = $comment->getCommentsByBookId($bookId);
-                    // Display comments here
-                    ?>
+
                 </div>
             </div>
             <div class="mt-5">
@@ -180,8 +172,6 @@ $category = $categories->getCategories();
         </div>
     </div>
 </div>
-<!-- Meta tags, Tailwind CSS, jQuery -->
-<!-- footer -->
 <footer class="bg-white rounded-lg shadow dark:bg-gray-900 m-4">
     <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8"></div>
     <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8"/>

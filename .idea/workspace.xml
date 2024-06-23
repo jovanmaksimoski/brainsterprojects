@@ -5,21 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="02eae611-7b93-4ff9-ab28-73d202018f9d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminComments.php" beforeDir="false" afterPath="$PROJECT_DIR$/adminComments.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminPanel.php" beforeDir="false" afterPath="$PROJECT_DIR$/adminPanel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backEnd/Classes/Books.php" beforeDir="false" afterPath="$PROJECT_DIR$/backEnd/Classes/Books.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backEnd/Classes/Comment.php" beforeDir="false" afterPath="$PROJECT_DIR$/backEnd/Classes/Comment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backEnd/Classes/Note.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backEnd/Classes/loginUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/backEnd/Classes/loginUser.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javaScript/filter.js" beforeDir="false" afterPath="$PROJECT_DIR$/javaScript/filter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loadComments.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/saveComment.php" beforeDir="false" afterPath="$PROJECT_DIR$/saveComment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signUp.php" beforeDir="false" afterPath="$PROJECT_DIR$/signUp.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/viewCart.php" beforeDir="false" afterPath="$PROJECT_DIR$/viewCart.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +44,7 @@
     "JavaScript Debug.form.html.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "admin__page",
+    "git-widget-placeholder": "project02",
     "last_opened_file_path": "C:/xampp2/htdocs/brainsterprojects_jovanmaksimoski-fs15",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
