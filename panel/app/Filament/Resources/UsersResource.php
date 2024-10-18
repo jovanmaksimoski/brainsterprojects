@@ -30,12 +30,7 @@ class UsersResource extends Resource
 
     public static function table(Table $table): Table
     {
-
-        Grid::make([
-            'md' => 2,
-        ]);
         return $table
-
 
             ->columns([
                 Tables\Columns\TextColumn::make('id'),

@@ -36,8 +36,6 @@ class BlogsResource extends Resource
                 Tables\Columns\TextColumn::make('id'),
                 Tables\Columns\TextColumn::make('title'),
                 Tables\Columns\TextColumn::make('body'),
-
-
             ])
             ->filters([
                 //

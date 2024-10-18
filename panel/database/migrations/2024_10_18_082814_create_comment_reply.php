@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('special_guests_speakers', function (Blueprint $table) {
+        Schema::create('comment_reply', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('conferences_id')->constrained('conferences')->cascadeOnDelete();
-            $table->string('name');
-            $table->string('title');
-            $table->string('category');
+            $table->foreignId('blogs_comments_id')->constrained('blog_comments');
+            $table->foreignId('user_id');
+            $table->text('reply');
             $table->timestamps();
         });
     }
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('special_guests_speakers');
+        Schema::dropIfExists('comment_reply');
     }
 };

@@ -1,0 +1,55 @@
+------------------------------------------------------------------------------------------------------------------------
+
+                                                  FILAMENT ADMIN PANEL
+
+    Thank you for downloading my admin panel project.
+    This project was made in php 8.1 version and laravel version 10 with the package of laravel filament version 3
+    The database is made in mysql
+
+    How to use this project ?
+
+    Follow the next steps:
+
+    -Open the terminal and type this commands:
+
+        -composer install
+        - npm install
+        - npm  build
+        - npm run dev
+
+    - Make a connection in the .env file
+     if u have .env.example file only just write in the terminal cp .env.example .env and connect your database
+
+    - Open new terminal and run the migrations and seeders
+
+        - php artisan migrate
+        - php artisan db:seed
+            or
+        - php artisan migrate --seed
+
+    - Now serve your project. Open new terminal and write:
+
+        - php artisan serve
+
+    - In order to create your admin account you need to write this command in the terminal :
+
+           - php artisan make:filament-user (and fill out the fields in your terminal)
+
+    - To login as admin u have to be on the route admin/login
+
+        - http://127.0.0.1:8000/admin/login
+
+    - If the application is slow and laggy try clearing the cache. Write these commands in the terminal:
+
+        - php artisan filament:optimize
+        - php artisan filament:optimize-clear
+
+------------------------------------------------------------------------------------------------------------------------
+
+    If something of this doesn't work try downloading the package via the terminal :
+
+        - composer require filament/filament:"^3.0" -W
+
+    If the download it's not successful  go to your php.ini file and find
+    ;extension=intl and remove the semicolon like this extension=intl.
+

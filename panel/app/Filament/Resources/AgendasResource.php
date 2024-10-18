@@ -2,16 +2,18 @@
 
 namespace App\Filament\Resources;
 
+use App\Filament\Resources\AgendasResource\EventsRelationManagers;
 use App\Filament\Resources\AgendasResource\Pages;
-use App\Filament\Resources\AgendasResource\RelationManagers;
+use App\Filament\Resources\AgendasResource\RelationManagers\ConferencesRelationManager;
+use App\Filament\Resources\AgendasResource\RelationManagers\EventRelationManager;
+use App\Filament\Resources\AgendasResource\RelationManagers\EventsRelationManager;
+use App\Filament\Resources\AgendasResource\RelationManagers\SpecialGuestsRelationManager;
 use App\Models\Agendas;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class AgendasResource extends Resource
 {
@@ -23,19 +25,29 @@ class AgendasResource extends Resource
     {
         return $form
             ->schema([
-                //
-            ]);
+                Forms\Components\TextInput::make('description')->required(),
+                Forms\Components\DateTimePicker::make('date')->required(),
+]);
     }
-
     public static function table(Table $table): Table
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('id'),
+                Tables\Columns\TextColumn::make('description'),
+                Tables\Columns\TextColumn::make('date'),
 
-
-
-
-
+                Tables\Columns\TextColumn::make('type_of_agenda')
+                    ->label('Type of Agenda')
+                    ->getStateUsing(function ($record) {
+                        if ($record->events()->exists()) {
+                            return 'Event';
+                        } elseif ($record->conferences()->exists()) {
+                            return 'Conference';
+                        } else {
+                            return 'Unknown';
+                        }
+                    }),
             ])
             ->filters([
                 //
@@ -53,10 +65,14 @@ class AgendasResource extends Resource
             ]);
     }
 
+
     public static function getRelations(): array
     {
         return [
-            //
+            EventsRelationManager::class,
+            ConferencesRelationManager::class,
+            EventRelationManager::class,
+            SpecialGuestsRelationManager::class
         ];
     }
 
