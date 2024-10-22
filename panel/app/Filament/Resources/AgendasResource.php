@@ -37,17 +37,17 @@ class AgendasResource extends Resource
                 Tables\Columns\TextColumn::make('description'),
                 Tables\Columns\TextColumn::make('date'),
 
-                Tables\Columns\TextColumn::make('type_of_agenda')
-                    ->label('Type of Agenda')
-                    ->getStateUsing(function ($record) {
-                        if ($record->events()->exists()) {
-                            return 'Event';
-                        } elseif ($record->conferences()->exists()) {
-                            return 'Conference';
-                        } else {
-                            return 'Unknown';
-                        }
-                    }),
+//                Tables\Columns\TextColumn::make('type_of_agenda')
+//                    ->label('Type of Agenda')
+//                    ->getStateUsing(function ($record) {
+//                        if ($record->events()->exists()) {
+//                            return 'Event';
+//                        } elseif ($record->conferences()->exists()) {
+//                            return 'Conference';
+//                        } else {
+//                            return 'Unknown';
+//                        }
+//                    }),
             ])
             ->filters([
                 //

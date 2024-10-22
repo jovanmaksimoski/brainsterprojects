@@ -7,6 +7,7 @@ use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables;
 use Filament\Tables\Table;
+use App\Models\SpecialGuestsSpeaker;
 
 class SpecialGuestsRelationManager extends RelationManager
 {

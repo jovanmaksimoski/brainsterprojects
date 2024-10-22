@@ -31,7 +31,7 @@
 
         - php artisan serve
 
-    - In order to create your admin account you need to write this command in the terminal :
+    - In order to create your admin account you need to write this command in the terminal :conferences
 
            - php artisan make:filament-user (and fill out the fields in your terminal)
 

@@ -20,7 +20,8 @@ return new class extends Migration
             $table->string('location');
             $table->dateTime('date');
             $table->string('status');
-            $table->foreignId('agendas_id')->constrained()->cascadeOnDelete();
+            $table->unsignedBigInteger('agendas_id')->nullable();
+            $table->foreign('agendas_id')->references('id')->on('agendas')->cascadeOnDelete();
             $table->timestamps();;
         });
     }

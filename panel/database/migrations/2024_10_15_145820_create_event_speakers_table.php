@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('event_speakers', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('event_id')->constrained('events')->cascadeOnDelete();
+            $table->unsignedBigInteger('events_id')->nullable();
+            $table->foreign('events_id')->references('id')->on('event_speakers')->cascadeOnDelete();
             $table->string('name');
             $table->string('title');
             $table->string('social_media');

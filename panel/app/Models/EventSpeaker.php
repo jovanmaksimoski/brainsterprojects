@@ -9,6 +9,8 @@ class EventSpeaker extends Model
 {
     use HasFactory;
 
+
+
     protected $fillable = [
         'event_id',
         'name',

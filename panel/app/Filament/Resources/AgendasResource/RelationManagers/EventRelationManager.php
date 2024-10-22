@@ -6,6 +6,7 @@ use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables;
+use App\Models\EventSpeaker;
 use Filament\Tables\Table;
 
 class EventRelationManager extends RelationManager
