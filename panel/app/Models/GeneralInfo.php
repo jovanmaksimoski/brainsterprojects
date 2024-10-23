@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class GeneralInfo extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'hero_image',
+        'social_links',
+        'members',
+
+    ];
 }

@@ -13,7 +13,7 @@ return new class extends Migration {
         Schema::create('special_guests_speakers', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('conferences_id')->nullable();
-            $table->foreign('conferences_id')->references('id')->on('special_guests_speakers')->cascadeOnDelete();
+            $table->foreign('conferences_id')->references('id')->on('conferences')->cascadeOnDelete();
             $table->string('name');
             $table->string('title');
             $table->string('category');
